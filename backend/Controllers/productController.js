@@ -2,11 +2,11 @@ const Product = require('../ORM/product.model.js');
 
 async function createProduct(req, res) {
   try {
-    const { product_name, description, price, stock, image } = req.body;
+    const { product_name, description, price, stock, image, category_id } = req.body;
 
     // Validate input
-    if (!product_name || !description || !price || !stock || !image) {
-      return res.status(400).json({ message: 'Please provide product_name, description, price, stock, and image' });
+    if (!product_name || !description || !price || !stock || !image || !category_id) {
+      return res.status(400).json({ message: 'Please provide product_name, description, price, stock, image and category_id' });
     }
 
     if (typeof product_name !== 'string' || typeof description !== 'string' || typeof image !== 'string') {
@@ -21,8 +21,12 @@ async function createProduct(req, res) {
       return res.status(400).json({ message: 'Stock must be a valid number' });
     }
 
+    if (typeof category_id !== 'number' || isNaN(category_id)) {
+      return res.status(400).json({ message: 'Category_id must be a valid number' });
+    }
+
     // Create new product
-    const newProduct = await Product.create({ product_name, description, price, stock, image });
+    const newProduct = await Product.create({ product_name, description, price, stock, image, category_id });
 
     // Send response with new product
     res.status(201).json({ message: 'Product created successfully', product: newProduct });
@@ -56,6 +60,24 @@ async function getAllProducts(req, res) {
       }
       // Send response with the product
       res.status(200).json({ product });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  }
+
+
+  // get products by categoryID 
+  async function getProductsByCategoryId(req, res) {
+    try {
+      const { category_id } = req.params;
+      // Find the product by ID
+      const products = await Product.findAll({ where: { category_id: category_id } })
+      if (!products) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+      // Send response with the product
+      res.status(200).json({ products });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal server error' });
@@ -135,5 +157,5 @@ async function getAllProducts(req, res) {
   
 
 module.exports = {
-  createProduct, getAllProducts, updateProduct, deleteProduct, getProduct
+  createProduct, getAllProducts, updateProduct, deleteProduct, getProduct, getProductsByCategoryId
 };
