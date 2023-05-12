@@ -14,7 +14,7 @@ router.post('/new', productController.createProduct);
 router.get('/:product_id',productController.getProduct);
 
 // // Get products by categoryID
-router.get('/:category_id',productController.getProductsByCategoryId);
+router.get('/category/:category_id',productController.getProductsByCategoryId);
 
 // // Update a product by ID
 router.put('/:product_id', productController.updateProduct);
