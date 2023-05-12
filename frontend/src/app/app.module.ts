@@ -23,6 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StoreComponent } from './pages/store/store.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     SignupComponent,
     StoreComponent,
     ProductItemComponent,
+    AddProductComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
