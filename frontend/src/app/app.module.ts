@@ -24,6 +24,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { StoreComponent } from './pages/store/store.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +47,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     LoginComponent,
     SignupComponent,
     StoreComponent,
+    AddProductComponent,
+    ManageProductsComponent,
     ProductItemComponent,
-    AddProductComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
