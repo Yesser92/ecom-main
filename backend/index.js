@@ -1,3 +1,4 @@
+
 const express = require('express')
 const cors = require('cors');
 const users = require('./Routes/user.js');
@@ -6,25 +7,26 @@ const cart= require('./Routes/cart.js')
 const category= require('./Routes/category.js')
 const sequelize = require('./ORM/index.js');
 
-const app = express()
+const app = express();
+
 // Middleware
-app.use(express.json()); 
+app.use(express.json());
 app.use(cors());
 
-const port = 3000
-
-// Use the routes 
-app.use('/api/users', users);
-app.use('/api/products', products);
-
-app.use('/api/cart',cart)
+// Use the routes
+app.use("/api/users", users);
+app.use("/api/products", products);
+app.use("/api/cart", cart);
 app.use('/api/category',category)
+
+// Sync with the database and start the server
 sequelize.sync()
   .then(() => {
+    const port = 3000;
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
   })
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
   });
