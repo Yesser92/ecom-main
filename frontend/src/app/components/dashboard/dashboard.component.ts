@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
-  showMoreProducts = false
-
-  showUnshow() {
-    if(!this.showMoreProducts){
-      this.showMoreProducts = true
-    }
-    else{
-      this.showMoreProducts = false
-    }
-  }
-
 }
