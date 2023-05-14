@@ -1,13 +1,10 @@
 
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-  <ul>
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/signup">Sign Up</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/products">All Products</a></li>
-    <li><a routerLink="/dashboard">Dashboard</a></li>
-  </ul>
-</nav>
+<app-navbar></app-navbar>
+
+
+
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

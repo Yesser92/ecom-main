@@ -24,6 +24,9 @@ import { StoreComponent } from './pages/store/store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o'; // Import OwlCarouselModule
+import { RouterModule } from '@angular/router';
+import { OwlModule } from 'ngx-owl-carousel'; // Add this line
 
 @NgModule({
   declarations: [
@@ -52,7 +55,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule, // Add RouterModule
+    CarouselModule, // Add OwlCarouselModule to the imports array
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
