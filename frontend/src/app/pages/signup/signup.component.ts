@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ export class SignupComponent {
   password: string;
   confirmPassword: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.user_name = '';
     this.email = '';
     this.password = '';
@@ -30,6 +31,8 @@ export class SignupComponent {
       this.http.post('http://localhost:3000/api/users/register', userData).subscribe(
         (response) => {
           console.log('User registered successfully:', response);
+          // Navigate to login page
+          this.router.navigate(['/login']);
         },
         (error) => {
           console.error('Error registering user:', error);

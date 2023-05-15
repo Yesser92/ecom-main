@@ -24,6 +24,9 @@ import { StoreComponent } from './pages/store/store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o'; // Import OwlCarouselModule
+import { RouterModule } from '@angular/router';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -46,13 +49,17 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     SignupComponent,
     StoreComponent,
-    AddProductComponent
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule, // Add RouterModule
+    CarouselModule, // Add OwlCarouselModule to the imports array
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
