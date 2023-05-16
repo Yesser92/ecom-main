@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersComponent } from './components/customers/customers.component';
@@ -21,7 +23,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StoreComponent } from './pages/store/store.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +48,12 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     LoginComponent,
     SignupComponent,
     StoreComponent,
-    AddProductComponent
+    AddProductComponent,
+    ManageProductsComponent,
+    ProductItemComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule
-   
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
