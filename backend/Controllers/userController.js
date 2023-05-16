@@ -101,12 +101,10 @@ async function loginUser(req, res) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ user_id: user.user_id }, "secret");
+    const token = jwt.sign({ user_id: user.user_id },  "secret");
 
     // Send response with token
-    res
-      .status(200)
-      .json({ message: "User logged in successfully", token, user });
+    res.status(200).json({ message: 'User logged in successfully', token,user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
