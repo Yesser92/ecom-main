@@ -21,6 +21,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StoreComponent } from './pages/store/store.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o'; // Import OwlCarouselModule
+import { RouterModule } from '@angular/router';
+import { OwlModule } from 'ngx-owl-carousel'; // Add this line
 
 @NgModule({
   declarations: [
@@ -42,11 +48,18 @@ import { StoreComponent } from './pages/store/store.component';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    StoreComponent
+    StoreComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule, // Add RouterModule
+    CarouselModule, // Add OwlCarouselModule to the imports array
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
