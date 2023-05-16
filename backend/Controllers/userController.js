@@ -43,7 +43,7 @@ async function registerUser(req, res) {
     const newUser = await User.create({ user_name, email, password: hashedPassword});
 
     // Generate JWT token
-    const token = jwt.sign({ user_id: newUser.user_id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ user_id: newUser.user_id }, "secret");
 
     // Send response with token
     res.status(201).json({ message: 'User registered successfully', token });
@@ -79,10 +79,10 @@ async function loginUser(req, res) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ user_id: user.user_id },  "secret");
 
     // Send response with token
-    res.status(200).json({ message: 'User logged in successfully', token });
+    res.status(200).json({ message: 'User logged in successfully', token,user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' })
