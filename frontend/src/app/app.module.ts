@@ -53,7 +53,7 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
     ProductItemComponent,
     
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
