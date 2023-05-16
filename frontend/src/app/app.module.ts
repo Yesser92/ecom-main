@@ -60,6 +60,11 @@ import { OwlModule } from 'ngx-owl-carousel';
     CarouselModule, // Add OwlCarouselModule to the imports array
     
 
+    HttpClientModule,
+    RouterModule, // Add RouterModule
+    CarouselModule, // Add OwlCarouselModule to the imports array
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
