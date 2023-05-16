@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,7 +50,9 @@ import { OwlModule } from 'ngx-owl-carousel'; // Add this line
     LoginComponent,
     SignupComponent,
     StoreComponent,
-    AddProductComponent
+    AddProductComponent,
+    ManageProductsComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
@@ -58,8 +61,7 @@ import { OwlModule } from 'ngx-owl-carousel'; // Add this line
     HttpClientModule,
     RouterModule, // Add RouterModule
     CarouselModule, // Add OwlCarouselModule to the imports array
-    
-
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

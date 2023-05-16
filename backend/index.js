@@ -1,11 +1,12 @@
-
-const express = require('express')
-const cors = require('cors');
-const users = require('./Routes/user.js');
-const products = require('./Routes/product.js')
-const cart= require('./Routes/cart.js')
-const category= require('./Routes/category.js')
-const sequelize = require('./ORM/index.js');
+const express = require("express");
+const cors = require("cors");
+const users = require("./Routes/user.js");
+const products = require("./Routes/product.js");
+const cart = require("./Routes/cart.js");
+const category = require("./Routes/category.js");
+const sequelize = require("./ORM/index.js");
+const promotions = require("./Routes/admin.js");
+const order = require('./Routes/order.js')
 
 const app = express();
 
@@ -17,10 +18,14 @@ app.use(cors());
 app.use("/api/users", users);
 app.use("/api/products", products);
 app.use("/api/cart", cart);
+app.use("/api/admin/promotion", promotions);
+
 app.use('/api/category',category)
+app.use('/api/orders',order)
 
 // Sync with the database and start the server
-sequelize.sync()
+sequelize
+  .sync()
   .then(() => {
     const port = 3000;
     app.listen(port, () => {
