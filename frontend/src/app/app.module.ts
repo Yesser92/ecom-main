@@ -51,6 +51,7 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
     AddProductComponent,
     ManageProductsComponent,
     ProductItemComponent,
+    
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
