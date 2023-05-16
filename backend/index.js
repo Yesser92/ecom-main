@@ -6,6 +6,7 @@ const products = require('./Routes/product.js')
 const cart= require('./Routes/cart.js')
 const category= require('./Routes/category.js')
 const sequelize = require('./ORM/index.js');
+const order = require('./Routes/order.js')
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use("/api/users", users);
 app.use("/api/products", products);
 app.use("/api/cart", cart);
 app.use('/api/category',category)
+app.use('/api/orders',order)
 
 // Sync with the database and start the server
 sequelize.sync()
