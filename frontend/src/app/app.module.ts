@@ -25,7 +25,10 @@ import { StoreComponent } from './pages/store/store.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
-
+import { ManageCategoriesComponent } from './components/manage-categories/manage-categories.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import {CloudinaryModule} from '@cloudinary/ng';
+import { UsersComponent } from './components/users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +53,11 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
     AddProductComponent,
     ManageProductsComponent,
     ProductItemComponent,
+    ManageCategoriesComponent,
+    AddCategoryComponent,
+    UsersComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CloudinaryModule],
   providers: [],
   bootstrap: [AppComponent],
 })

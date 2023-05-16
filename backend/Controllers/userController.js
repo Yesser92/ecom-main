@@ -5,14 +5,14 @@ const User = require('../ORM/user.model.js');
 
 async function registerUser(req, res) {
   try {
-    const { user_name, email, password } = req.body;
+    const { user_name, email, password, role } = req.body;
 
     // Validate input
     if (!user_name || !email || !password) {
       return res.status(400).json({ message: 'Please provide user_name, email, and password' });
     }
 
-    if (typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string') {
+    if (typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string' || typeof role !== 'string') {
       return res.status(400).json({ message: 'Name, email, and password must be strings' });
     }
 
@@ -40,11 +40,11 @@ async function registerUser(req, res) {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const newUser = await User.create({ user_name, email, password: hashedPassword});
-
+    const newUser = await User.create({ user_name, email, password: hashedPassword, role});
+    console.log(newUser.role)
     // Generate JWT token
-    const token = jwt.sign({ user_id: newUser.user_id }, process.env.JWT_SECRET);
-
+    const token = jwt.sign({ user_id: newUser.user_id }, "secret");
+    
     // Send response with token
     res.status(201).json({ message: 'User registered successfully', token });
   } catch (error) {

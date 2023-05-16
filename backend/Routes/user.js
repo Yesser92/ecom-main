@@ -9,8 +9,8 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.put('/:userId', updateUser);
 router.get('/:userId', auth, getUserById);
-router.delete('/:userId', deleteUser);
-router.get('/', isAdmin, getUsers);
+router.delete('/:user_id', deleteUser);
+router.get('/', getUsers);
 router.get('/orders/:user_id',orderController.getOrdersByUserId)
 
 module.exports = router;

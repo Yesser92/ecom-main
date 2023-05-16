@@ -7,16 +7,18 @@
    </div>
    <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
-         (click)="showUnshow()">
+         (click)="showUnshowProducts()">
          Products
       </button>
-      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
+      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
+      (click)="showUnshowCategories()">
          Categories
       </button>
       <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
          Orders
       </button>
-      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
+      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
+      (click)="showUnshowUsers()">
          Users
       </button>
    </div>
@@ -24,6 +26,14 @@
       <!-- This section shows only if user clicks Products button -->
       <div *ngIf="showMoreProducts">
          <app-manage-products></app-manage-products>
+      </div>
+      <!-- This section shows only if user clicks Categories button -->
+      <div *ngIf="showMoreCategories">
+         <app-manage-categories></app-manage-categories>
+      </div>
+      <!-- This section shows only if user clicks Users button -->
+      <div *ngIf="showMoreUsers">
+         <app-users></app-users>
       </div>
    </div>
 </div>
