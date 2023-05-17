@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,8 +31,10 @@ import {CloudinaryModule} from '@cloudinary/ng';
 import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CarouselModule } from 'ngx-owl-carousel-o'; // Import OwlCarouselModule
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
+import { OwlModule } from 'ngx-owl-carousel';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { RouterModule } from '@angular/router';
     OrdersComponent,
     OrderItemsComponent,
     ProductsComponent,
+    ProductItemComponent,
     StripeContainerComponent,
     AboutComponent,
     HomeComponent,
@@ -68,9 +72,10 @@ import { RouterModule } from '@angular/router';
     RouterModule, // Add RouterModule
     CarouselModule, // Add OwlCarouselModule to the imports array
     ReactiveFormsModule,
-    CloudinaryModule
+    CloudinaryModule,
+    CommonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

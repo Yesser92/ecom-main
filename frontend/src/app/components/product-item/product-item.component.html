@@ -1,0 +1,95 @@
+<div
+  class="bg-white shadow-md rounded-md overflow-hidden product-item product-item-wrapper w-full md:w-1/3 lg:w-1/4 inline-block"
+>
+  <div class="product-image">
+    <img class="w-full h-auto" src="{{ product.image }}" alt="Product Image" />
+  </div>
+  <div class="p-2 product-details">
+    <h3 class="font-bold text-lg mb-2">{{ product.product_name }}</h3>
+    <p class="text-gray-700 text-base mb-2">
+      {{ slicePipe.transform(product.description, 0, 80)
+      }}{{ product.description.length > 80 ? "..." : "" }}
+    </p>
+    <div class="mt-4 flex items-center">
+      <div class="mr-2 text-lg font-bold">4.0</div>
+      <div class="flex items-center">
+        <span class="text-2xl text-yellow-400">&#9733;</span>
+        <span class="text-2xl text-yellow-400">&#9733;</span>
+        <span class="text-2xl text-yellow-400">&#9733;</span>
+        <span class="text-2xl text-yellow-400">&#9733;</span>
+        <span class="text-2xl text-gray-400">&#9733;</span>
+      </div>
+      <div class="ml-2 text-gray-500">(7 reviews)</div>
+    </div>
+    <p class="text-green-600 text-lg font-bold">{{ product.price }}TND</p>
+    <p class="font-bold text-gray-500 text-sm mb-2">
+      In Stock: {{ product.stock }}
+    </p>
+    <div class="flex mt-4 button-container">
+      <button
+        class="bg-green-500 text-white py-2 px-4 rounded-md mr-2 hover:bg-green-600"
+      >
+        Add to Cart
+      </button>
+      <button
+        class="bg-blue-500 text-white py-2 px-4 rounded-md ml-auto hover:bg-blue-600"
+        (click)="showDetailsModal = true"
+      >
+        View Details
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="showDetailsModal">
+  <div
+    class="fixed inset-0 z-10 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none"
+  >
+    <div class="relative w-auto my-6 mx-auto max-w-3xl">
+      <div class="bg-white shadow-md rounded-md">
+        <div class="product-image">
+          <img
+            class="w-1/2 h-auto"
+            src="{{ product.image }}"
+            alt="Product Image"
+          />
+        </div>
+        <div class="p-4 product-details">
+          <h3 class="font-bold text-lg mb-2">{{ product.product_name }}</h3>
+          <p class="text-gray-700 text-base mb-2">{{ product.description }}</p>
+          <div class="mt-4 flex items-center">
+            <div class="mr-2 text-lg font-bold">4.0</div>
+            <div class="flex items-center">
+              <span class="text-2xl text-yellow-400">&#9733;</span>
+              <span class="text-2xl text-yellow-400">&#9733;</span>
+              <span class="text-2xl text-yellow-400">&#9733;</span>
+              <span class="text-2xl text-yellow-400">&#9733;</span>
+              <span class="text-2xl text-gray-400">&#9733;</span>
+            </div>
+            <div class="ml-2 text-gray-500">(7 reviews)</div>
+          </div>
+          <p class="text-green-600 text-lg font-bold">
+            {{ product.price }} TND
+          </p>
+          <p class="font-bold text-gray-500 text-sm mb-2">
+            In Stock: {{ product.stock }}
+          </p>
+          <div class="flex mt-4">
+            <button
+              class="bg-green-500 text-white py-2 px-4 rounded-md mr-2 hover:bg-green-600"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="bg-red-500 text-white py-2 px-8 rounded-md ml-auto hover:bg-red-600"
+              (click)="showDetailsModal = false"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed inset-0 z-0 bg-black opacity-50"></div>
+</ng-container>
