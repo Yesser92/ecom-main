@@ -1,1 +1,42 @@
-<p>products works!</p>
+<div class="flex justify-center bg-blue-500 py-4">
+  <div class="flex space-x-4">
+    <button
+      class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
+      [class.bg-blue-600]="filter === 'all'"
+      (click)="filter = 'all'; filterProducts()"
+    >
+      All
+    </button>
+
+    <button
+      class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
+      [class.bg-blue-600]="filter === 'Tech'"
+      (click)="filter = 'Tech'; filterProducts()"
+    >
+      Tech
+    </button>
+
+    <button
+      class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
+      [class.bg-blue-600]="filter === 'Home and Kitchen'"
+      (click)="filter = 'Home and Kitchen'; filterProducts()"
+    >
+      Home and Kitchen
+    </button>
+
+    <button
+      class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
+      [class.bg-blue-600]="filter === 'Clothing'"
+      (click)="filter = 'Clothing'; filterProducts()"
+    >
+      Clothing
+    </button>
+  </div>
+</div>
+
+<div class="products-list">
+  <app-product-item
+    *ngFor="let product of filteredProducts"
+    [product]="product"
+  ></app-product-item>
+</div>
