@@ -24,6 +24,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StoreComponent } from './pages/store/store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
+import { ManageCategoriesComponent } from './components/manage-categories/manage-categories.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import {CloudinaryModule} from '@cloudinary/ng';
+import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -54,17 +59,21 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     SignupComponent,
     StoreComponent,
     AddProductComponent,
+    ManageProductsComponent,
+    ManageCategoriesComponent,
+    AddCategoryComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule,
-    CarouselModule,
+    RouterModule, // Add RouterModule
+    CarouselModule, // Add OwlCarouselModule to the imports array
     ReactiveFormsModule,
-    CommonModule,
-    // OwlModule,
+    CloudinaryModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
