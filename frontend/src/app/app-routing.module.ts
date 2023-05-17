@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes,CanActivate, CanActivateFn } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -10,9 +10,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-
+import { authGuard } from './auth.guard';
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'dashboard', component: DashboardComponent ,canActivate:[authGuard]},
+  { path: 'about', component: AboutComponent }, 
   { path: 'addproduct', component: AddProductComponent },
   // additional routes...
 ];
