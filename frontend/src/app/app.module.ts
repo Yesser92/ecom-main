@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +26,10 @@ import { StoreComponent } from './pages/store/store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CarouselModule } from 'ngx-owl-carousel-o'; // Import OwlCarouselModule
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
-import { OwlModule } from 'ngx-owl-carousel'; // Add this line
+import { OwlModule } from 'ngx-owl-carousel';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { OwlModule } from 'ngx-owl-carousel'; // Add this line
     OrdersComponent,
     OrderItemsComponent,
     ProductsComponent,
+    ProductItemComponent,
     StripeContainerComponent,
     AboutComponent,
     HomeComponent,
@@ -51,19 +54,19 @@ import { OwlModule } from 'ngx-owl-carousel'; // Add this line
     SignupComponent,
     StoreComponent,
     AddProductComponent,
-    ManageProductsComponent,
-    ProductItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule, // Add RouterModule
-    CarouselModule, // Add OwlCarouselModule to the imports array
-    ReactiveFormsModule
+    RouterModule,
+    CarouselModule,
+    ReactiveFormsModule,
+    CommonModule,
+    // OwlModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

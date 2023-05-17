@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { Product } from 'src/app/interfaces/product';
+import { ProductService } from '../../services/product';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
   products: Product[] = [];
