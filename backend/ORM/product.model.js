@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../ORM/index.js');
+const Category = require('./category.model.js');
 
 const Product = sequelize.define('product', {
   product_id: {
@@ -34,5 +35,8 @@ const Product = sequelize.define('product', {
   createdAt: 'created_at',
   updatedAt: 'updated_at'
 });
+
+//Associations
+Product.belongsTo(Category, { foreignKey: 'category_id' });
 
 module.exports = Product;

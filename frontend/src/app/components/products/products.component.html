@@ -1,1 +1,3 @@
-<p>products works!</p>
+<div class="products-list"*ngFor="let product of products">
+  <app-product-item [product]="product" (item)="addToCart($event)" ></app-product-item>
+</div>
