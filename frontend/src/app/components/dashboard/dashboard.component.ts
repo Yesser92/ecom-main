@@ -7,14 +7,34 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
-  showMoreProducts = false
+  showMoreProducts = false;
+  showMoreCategories = false;
+  showMoreUsers = false;
 
-  showUnshow() {
+  showUnshowProducts() {
     if(!this.showMoreProducts){
-      this.showMoreProducts = true
+      this.showMoreProducts = true;
     }
     else{
-      this.showMoreProducts = false
+      this.showMoreProducts = false;
+    }
+  }
+
+  showUnshowCategories() {
+    if(!this.showMoreCategories){
+      this.showMoreCategories = true;
+    }
+    else{
+      this.showMoreCategories = false;
+    }
+  }
+
+  showUnshowUsers() {
+    if(!this.showMoreUsers){
+      this.showMoreUsers = true;
+    }
+    else{
+      this.showMoreUsers = false;
     }
   }
 
