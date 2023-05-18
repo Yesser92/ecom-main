@@ -1,17 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../interfaces/product';
+import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css'],
+  providers: [SlicePipe],
 })
 export class ProductItemComponent {
   quantity: number = 0;
   cartProducts: any[] = [];
   showDetailsModal = false;
   amount: number = 1;
-
+  slicePipe: SlicePipe = new SlicePipe();
   @Input()
   product!: Product;
 

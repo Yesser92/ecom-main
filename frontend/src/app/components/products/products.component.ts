@@ -1,6 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../../services/products';
 import { Product } from '../../interfaces/product';
+//Montassar
+//import { Product } from 'src/app/interfaces/product';
+
 
 @Component({
   selector: 'app-products',
@@ -8,40 +11,46 @@ import { Product } from '../../interfaces/product';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-  products:[] = [];
   @Input() data: any;
-  @Output() item = new EventEmitter<any>();
-  amount: number = 1; // Ajoutez cette ligne
+
+ products: Product[] = [];
 
   constructor(private productService: ProductService) {}
-  ngOnInit(): void {
-    this.productService.getProducts().subscribe((data: any) => {
-      this.products = data.products;
-      console.log(data);
-    });
+ 
+  categories: { category_id: number; category_name: string }[] = [
+    { category_id: 3, category_name: 'Tech' },
+    { category_id: 4, category_name: 'Clothing' },
+    { category_id: 5, category_name: 'Home and Kitchen' },
+  ];
+  selectedCategory: number | null = null;
+  filteredProducts: Product[] = [];
+  filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
+
+  constructor(private productService: ProductService) {}
+
+  filterProducts() {
+    if (this.filter === 'all') {
+      this.filteredProducts = this.products;
+    } else {
+      this.filteredProducts = this.products.filter((product) => {
+        const categoryName = this.getCategoryName(product.category_id);
+        return categoryName === this.filter;
+      });
+    }
   }
 
-  addToCart(product: Product) {
-    const item = {
-      product,
-      quantity: this.amount
-    };
+  getCategoryName(categoryId: number): string {
+    const category = this.categories.find(
+      (category) => category.category_id === categoryId
+    );
+    return category ? category.category_name : '';
+  }
 
-    if ("cart" in localStorage) {
-      this.products = JSON.parse(localStorage.getItem("cart")!);
-      let exist = this.products.find((p: any) => p.product.product_id == product.product_id);
-
-      if (exist) {
-        alert("Product is already in your cart");
-      } else {
-        this.products.push();
-        localStorage.setItem("cart", JSON.stringify(this.products));
-      }
-    } else {
-      this.products.push();
-      localStorage.setItem("cart", JSON.stringify(this.products));
-    }
-
-    this.item.emit(item);
+  ngOnInit() {
+    this.productService.getProducts().subscribe((data: any) => {
+      this.products = data.products;
+      this.filteredProducts = this.products;
+      console.log(data);
+    });
   }
 }
