@@ -1,1 +1,29 @@
-<p>dashboard works!</p>
+<div>
+   <h1 class=" text-gray-800 text-2xl font-bold py-2 px-4 ml-36 ">
+      Admin Dashboard
+   </h1>
+   <div id="graphs">
+
+   </div>
+   <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
+         (click)="showUnshow()">
+         Products
+      </button>
+      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
+         Categories
+      </button>
+      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
+         Orders
+      </button>
+      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
+         Users
+      </button>
+   </div>
+   <div>
+      <!-- This section shows only if user clicks Products button -->
+      <div *ngIf="showMoreProducts">
+         <app-manage-products></app-manage-products>
+      </div>
+   </div>
+</div>

@@ -1,3 +1,19 @@
-<h1 class="text-3xl underline">
-  Hello Angular!
-</h1>
+
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/signup">Sign Up</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/products">All Products</a></li>
+    <li><a routerLink="/dashboard">Dashboard</a></li>
+    <li><a routerLink="/orders">orders</a></li>
+
+  </ul>
+</nav>
+<div>
+  <h1>payment stripe checkout</h1>
+  <button (click)="makePayment(100)" >pay  </button>
+</div>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
