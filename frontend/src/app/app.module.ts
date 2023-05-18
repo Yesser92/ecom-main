@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersComponent } from './components/customers/customers.component';
@@ -26,7 +25,6 @@ import { StoreComponent } from './pages/store/store.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +49,7 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
     AddProductComponent,
     ManageProductsComponent,
     ProductItemComponent,
+    
     
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
