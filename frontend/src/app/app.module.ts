@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -61,6 +59,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     StoreComponent,
     AddProductComponent,
     ManageProductsComponent,
+    ProductItemComponent,
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
