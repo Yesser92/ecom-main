@@ -17,7 +17,7 @@
             <tr *ngFor="let product of cartProducts; let index = index">
               <td></td>
               <td>{{ product.product_name }}</td>
-              <td><img [src]="product.product_image" alt="Product Image"></td>
+              <td><img [src]="product.image" alt="Product Image"></td>
               <td>
                 <p class="font-bold text-gray-500 text-sm mb-2">
                    {{ product.quantity }}
@@ -33,7 +33,7 @@
               <td>
                 <button class="btn btn-danger" (click)="clearCart()">Clear Shopping Cart</button>
               </td>
-              <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
+              <td><a href="/products" class="btn btn-primary">Shop More</a></td>
               
               <td><strong>Grand Total: ${{ calculateGrandTotal() }}</strong></td>
             </tr>
@@ -55,7 +55,7 @@
       <div class="center">
         <img src="URL_DE_VOTRE_IMAGE" alt="Empty cart logo">
         <a href="/products" class="btn btn-primary" style="display: inline-block; padding: 0.5em 1em; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 0.25em;">Shop Now</a>
-      </div>
     </div>
+  </div>
   </div>
 </ng-template>

@@ -1,8 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ProductService } from '../../services/products';
-import { Product } from '../../interfaces/product';
-//Montassar
-//import { Product } from 'src/app/interfaces/product';
+import { ProductService }  from 'src/app/services/product';
+import { Product } from 'src/app/interfaces/product';
 
 
 @Component({
@@ -26,7 +24,6 @@ export class ProductsComponent {
   filteredProducts: Product[] = [];
   filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
 
-  constructor(private productService: ProductService) {}
 
   filterProducts() {
     if (this.filter === 'all') {
