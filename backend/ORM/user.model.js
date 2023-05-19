@@ -17,6 +17,11 @@ const User = sequelize.define('user', {
     allowNull: false,
     unique: true
   },
+  phone:{
+    type: DataTypes.STRING,
+    allowNull: true,
+    defaultValue: ""
+  },
   role: {
     type: DataTypes.ENUM,
     values: ["customer", "admin"],
@@ -26,7 +31,33 @@ const User = sequelize.define('user', {
   password: {
     type: DataTypes.STRING,
     allowNull: false
-  }},
+  },
+  country:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: ""
+  },
+  address:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: ""
+  },
+  city:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: ""
+  },
+  zip_code:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: ""
+  },
+  state:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: ""
+  }
+},
   {
     timestamps: true, // Enable timestamps
     createdAt: 'created_at',
