@@ -58,6 +58,7 @@ app.post('/api/payment', async (req, res) => {
       } else {
         console.log(paymentMethod);
 
+
         try {
           const paymentIntent = await stripe.paymentIntents.create({
             amount,
@@ -91,6 +92,7 @@ app.use('/api/orders',order)
 // Sync with the database and start the server
 sequelize
   .sync()
+
   .then(() => {
     const port = 3000;
     app.listen(port, () => {
