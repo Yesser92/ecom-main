@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../../services/product';
 import { Product } from '../../interfaces/product';
-//Montassar
-//import { Product } from 'src/app/interfaces/product';
-
 
 @Component({
   selector: 'app-products',
