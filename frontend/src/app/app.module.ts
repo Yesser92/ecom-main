@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -37,7 +40,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
 import { OwlModule } from 'ngx-owl-carousel';
 import { ProductItemComponent } from './components/product-item/product-item.component';
-
+import { CheckoutComponent } from './components/checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,9 +64,11 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     StoreComponent,
     AddProductComponent,
     ManageProductsComponent,
+    ProductItemComponent,
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

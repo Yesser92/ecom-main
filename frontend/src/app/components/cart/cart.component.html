@@ -24,26 +24,35 @@
                 </p>
               </td>
               <td>{{ product.price }}</td>
+              
               <td>
-                <button class="btn btn-link" (click)="deleteProduct(index)">Delete</button>
+                <button class="btn btn-delete" (click)="deleteProduct(index)">Delete</button>
               </td>
             </tr>
             <tr>
               <td colspan="4"></td>
+              <td><strong>Grand Total: ${{ calculateGrandTotal() }}</strong></td>
               <td>
                 <button class="btn btn-danger" (click)="clearCart()">Clear Shopping Cart</button>
               </td>
               <td><a href="/products" class="btn btn-primary">Shop More</a></td>
-              
-              <td><strong>Grand Total: ${{ calculateGrandTotal() }}</strong></td>
             </tr>
-            <td><button class="btn btn-success" routerLink="/pay">Checkout</button></td>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button class="btn btn-pay" (click)="payAndCheckout()">Pay and Checkout</button>
+
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  
 </ng-container>
 
 <ng-template #emptyCart>
@@ -55,7 +64,7 @@
       <div class="center">
         <img src="URL_DE_VOTRE_IMAGE" alt="Empty cart logo">
         <a href="/products" class="btn btn-primary" style="display: inline-block; padding: 0.5em 1em; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 0.25em;">Shop Now</a>
+      </div>
     </div>
-  </div>
   </div>
 </ng-template>
