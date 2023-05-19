@@ -1,13 +1,15 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../ORM/index.js');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../ORM/index.js");
 
-const User = sequelize.define('user', {
-  user_id: {
+const User = sequelize.define(
+  "user",
+  { user_id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
+    
   user_name: {
     type: DataTypes.STRING,
     allowNull: false
@@ -58,10 +60,12 @@ const User = sequelize.define('user', {
     defaultValue: ""
   }
 },
+
+
   {
     timestamps: true, // Enable timestamps
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 
