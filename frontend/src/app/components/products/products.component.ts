@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../../services/product';
 import { Product } from '../../interfaces/product';
-//Montassar
-//import { Product } from 'src/app/interfaces/product';
-
 
 @Component({
   selector: 'app-products',
@@ -26,7 +23,6 @@ export class ProductsComponent {
   filteredProducts: Product[] = [];
   filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
   searchQuery: string = '';
-
 
   filterProducts() {
     if (this.filter === 'all') {
