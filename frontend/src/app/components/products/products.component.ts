@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ProductService } from '../../services/products';
+import { ProductService } from '../../services/product';
 import { Product } from '../../interfaces/product';
-//Montassar
-//import { Product } from 'src/app/interfaces/product';
-
 
 @Component({
   selector: 'app-products',
@@ -25,8 +22,8 @@ export class ProductsComponent {
   selectedCategory: number | null = null;
   filteredProducts: Product[] = [];
   filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
+  searchQuery: string = '';
 
-  constructor(private productService: ProductService) {}
 
   filterProducts() {
     if (this.filter === 'all') {
@@ -35,6 +32,28 @@ export class ProductsComponent {
       this.filteredProducts = this.products.filter((product) => {
         const categoryName = this.getCategoryName(product.category_id);
         return categoryName === this.filter;
+      });
+    }
+  }
+
+  searchProducts() {
+    if (!this.searchQuery) {
+      this.filteredProducts =
+        this.filter === 'all'
+          ? this.products
+          : this.products.filter((product) => {
+              const categoryName = this.getCategoryName(product.category_id);
+              return categoryName === this.filter;
+            });
+    } else {
+      this.filteredProducts = this.products.filter((product) => {
+        const categoryName = this.getCategoryName(product.category_id);
+        return (
+          (this.filter === 'all' || categoryName === this.filter) &&
+          product.product_name
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase())
+        );
       });
     }
   }
