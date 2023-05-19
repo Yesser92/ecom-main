@@ -1,0 +1,191 @@
+.container {
+  margin-top: 50px;
+}
+
+.card-table {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.cart-product table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-product th,
+.cart-product td {
+  text-align: center;
+  padding: 10px;
+}
+
+.cart-product thead th {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333333;
+}
+
+.cart-product tbody td {
+  font-size: 16px;
+  color: #666666;
+}
+
+.cart-product tbody td img {
+  width: 50px;
+  height: 50px;
+}
+
+.quantity-plus {
+  display: inline-block;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100px;
+  height: 40px;
+}
+
+.quantity-plus .quantity-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  color: #333333;
+  text-align: center;
+}
+
+.quantity-plus .fa-plus {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  line-height: 40px;
+  background-color: #f44336;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.quantity-plus .fa-plus:hover {
+  background-color: #c62828;
+}
+
+.btn-link {
+  color: #f44336;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-link:hover {
+  color: #c62828;
+}
+
+.btn-danger {
+  background-color: #f44336;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #c62828;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0062cc;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+.center {
+  text-align: center;
+}
+
+.empty-cart-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.trash-icon {
+  color: #f44336;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  vertical-align: middle;
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+.table .product {
+  display: flex;
+  align-items: center;
+}
+
+.table .product .name {
+  margin-left: 10px;
+}
+
+.table .product .name img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.table .product .name span {
+  font-weight: bold;
+}
+
+.table .product .quantity {
+  width: 25%;
+}
+
+.table .product .price {
+  font-weight: bold;
+}
+
+.table .product .delete-icon {
+  color: #f44336;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.table .product .delete-icon:hover {
+  color: #c62828;
+}
+
+
