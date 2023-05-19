@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +34,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+
+import { CheckoutComponent } from './components/checkout/checkout.component';
+
 import { ContactComponent } from './contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -63,8 +68,12 @@ import { ContactComponent } from './contact/contact.component';
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
+
+    CheckoutComponent,
+
     ContactComponent,
     
+
   ],
   imports: [
     BrowserModule,
