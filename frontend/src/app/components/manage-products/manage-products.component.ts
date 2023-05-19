@@ -28,6 +28,7 @@ export class ManageProductsComponent implements OnInit {
         console.error('Error fetching data:', error);
       }
     );
+    
     this.compData.getCategories().subscribe(
       (response) => {
         this.categories = response.categories;

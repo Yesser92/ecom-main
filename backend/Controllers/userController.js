@@ -14,7 +14,7 @@ async function registerUser(req, res) {
         .json({ message: "Please provide user_name, email, and password" });
     }
 
-    if (typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string' || typeof role !== 'string') {
+    if (typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string') {
       return res.status(400).json({ message: 'Name, email, and password must be strings' });
     }
 
@@ -115,6 +115,7 @@ async function updateUser(req, res) {
       state,
       zip_code,
       country,
+      role
     } = req.body;
 
     // Check if user exists
@@ -132,6 +133,7 @@ async function updateUser(req, res) {
     user.state = state || user.state;
     user.zip_code = zip_code || user.zip_code;
     user.country = country || user.country;
+    user.role = role || user.role;
 
     // Check if password needs to be updated
     if (password) {

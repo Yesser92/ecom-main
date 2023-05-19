@@ -35,6 +35,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
 import { OwlModule } from 'ngx-owl-carousel';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
+    ImageUploadComponent,
+    ManageOrdersComponent,
   ],
   imports: [
     BrowserModule,

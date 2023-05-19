@@ -30,8 +30,9 @@
       <div class="mb-4">
         <label for="category" class="block text-gray-700 font-bold mb-2">Add an image for the product</label>
         <form action="" method="post" enctype="multipart/form-data">
-          <input type="file">
+          <input type="file" accept=".gif, .png, .jpg, .jpeg">
         </form>
+        <app-image-upload></app-image-upload>
       </div>
       <div class="flex justify-end">
         <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Add Product</button>
