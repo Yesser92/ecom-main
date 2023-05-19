@@ -27,7 +27,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageCategoriesComponent } from './components/manage-categories/manage-categories.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
-import {CloudinaryModule} from '@cloudinary/ng';
+import { CloudinaryModule } from '@cloudinary/ng';
 import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -73,7 +73,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     CarouselModule, // Add OwlCarouselModule to the imports array
     ReactiveFormsModule,
     CloudinaryModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
