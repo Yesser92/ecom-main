@@ -33,7 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
-import { OwlModule } from 'ngx-owl-carousel';
+;
 import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
