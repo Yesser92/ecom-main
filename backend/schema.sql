@@ -38,7 +38,23 @@ CREATE TABLE IF NOT EXISTS `rbkecomdb`.`users` (
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `email` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 12
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `rbkecomdb`.`categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `rbkecomdb`.`categories` (
+  `category_id` INT NOT NULL AUTO_INCREMENT,
+  `category_name` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`category_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -55,9 +71,16 @@ CREATE TABLE IF NOT EXISTS `rbkecomdb`.`products` (
   `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `image` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`product_id`))
+  `category_id` INT NOT NULL,
+  PRIMARY KEY (`product_id`),
+  INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
+  CONSTRAINT `category_id`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `rbkecomdb`.`categories` (`category_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -87,16 +110,30 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `rbkecomdb`.`categories`
+-- Table `rbkecomdb`.`carts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rbkecomdb`.`categories` (
-  `category_id` INT NOT NULL AUTO_INCREMENT,
-  `category_name` VARCHAR(255) NOT NULL,
-  `description` TEXT NULL DEFAULT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`category_id`))
+CREATE TABLE IF NOT EXISTS `rbkecomdb`.`carts` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `quantity` INT NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  `user_id` INT NULL DEFAULT NULL,
+  `product_id` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`cart_id`),
+  INDEX `user_id` (`user_id` ASC) VISIBLE,
+  INDEX `product_id` (`product_id` ASC) VISIBLE,
+  CONSTRAINT `carts_ibfk_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `rbkecomdb`.`users` (`user_id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+  CONSTRAINT `carts_ibfk_2`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `rbkecomdb`.`products` (`product_id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 47
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -123,6 +160,7 @@ CREATE TABLE IF NOT EXISTS `rbkecomdb`.`orders` (
     FOREIGN KEY (`user_id`)
     REFERENCES `rbkecomdb`.`users` (`user_id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
