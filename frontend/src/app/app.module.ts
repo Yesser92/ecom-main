@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersComponent } from './components/customers/customers.component';
@@ -35,6 +34,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
 import { OwlModule } from 'ngx-owl-carousel';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +63,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

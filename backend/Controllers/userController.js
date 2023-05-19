@@ -14,7 +14,7 @@ async function registerUser(req, res) {
         .json({ message: "Please provide user_name, email, and password" });
     }
 
-    if (typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string' || typeof role !== 'string') {
+    if (typeof user_name !== 'string' || typeof email !== 'string' || typeof password !== 'string') {
       return res.status(400).json({ message: 'Name, email, and password must be strings' });
     }
 

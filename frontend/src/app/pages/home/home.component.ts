@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     nav: true,
     dots: true
   };
-
+ 
   images: string[] = [
     
     'https://blog.hubspot.com/hubfs/Ecommerce/ecommerce-promotions-fail.jpg',
