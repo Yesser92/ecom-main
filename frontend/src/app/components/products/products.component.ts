@@ -25,6 +25,7 @@ export class ProductsComponent {
   selectedCategory: number | null = null;
   filteredProducts: Product[] = [];
   filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
+  searchQuery: string = '';
 
   constructor(private productService: ProductService) {}
 
@@ -35,6 +36,28 @@ export class ProductsComponent {
       this.filteredProducts = this.products.filter((product) => {
         const categoryName = this.getCategoryName(product.category_id);
         return categoryName === this.filter;
+      });
+    }
+  }
+
+  searchProducts() {
+    if (!this.searchQuery) {
+      this.filteredProducts =
+        this.filter === 'all'
+          ? this.products
+          : this.products.filter((product) => {
+              const categoryName = this.getCategoryName(product.category_id);
+              return categoryName === this.filter;
+            });
+    } else {
+      this.filteredProducts = this.products.filter((product) => {
+        const categoryName = this.getCategoryName(product.category_id);
+        return (
+          (this.filter === 'all' || categoryName === this.filter) &&
+          product.product_name
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase())
+        );
       });
     }
   }

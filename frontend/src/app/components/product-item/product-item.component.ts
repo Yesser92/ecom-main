@@ -12,11 +12,17 @@ export class ProductItemComponent {
   quantity: number = 0;
   cartProducts: any[] = [];
   showDetailsModal = false;
-  amount: number = 1;
+  showReviewForm = false;
+  reviewTitle!: string; // Add this line to declare the property
+  reviewContent!: string; // Add this line to declare the property
+
+  public range(length: number): number[] {
+    return new Array(length);
+  }
+
   slicePipe: SlicePipe = new SlicePipe();
   @Input()
   product!: Product;
-
   @Output() item = new EventEmitter<any>();
 
   addButton: boolean = false;
@@ -24,8 +30,9 @@ export class ProductItemComponent {
   constructor() {
   
   }
-
-
+ openReviewForm() {
+    this.showReviewForm = true;
+  }
 
   addToCart(event: any,newQuantity:string) {
 
