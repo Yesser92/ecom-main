@@ -19,4 +19,16 @@ export class UsersService {
     return this.http.delete<any>(deleteUrl);
   }
 
+  updateUserToAdmin(id: number): Observable<any> {
+    const updateUrl = `${this.apiUrl}/${id}`;
+    let role = "admin"
+    return this.http.put<any>(updateUrl, {role})
+  }
+
+  updateUserToCustomer(id: number): Observable<any> {
+    const updateUrl = `${this.apiUrl}/${id}`;
+    let role = "customer"
+    return this.http.put<any>(updateUrl, {role})
+  }
+
 }

@@ -1,35 +1,40 @@
-
-   <div>
-   <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
+<div class="flex justify-center bg-blue-500 py-4">
+   <div class="flex space-x-4">
+      <button class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
          (click)="showUnshowProducts()">
          Products
       </button>
-      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
-      (click)="showUnshowCategories()">
+
+      <button class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
+         (click)="showUnshowCategories()">
          Categories
       </button>
-      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500">
+
+      <button class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600"
+      (click)="showUnshowOrders()">
          Orders
       </button>
-      <button type="button" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg border hover:bg-gray-500"
-      (click)="showUnshowUsers()">
+
+      <button class="px-4 py-2 text-white rounded-md focus:outline-none focus:bg-blue-600" (click)="showUnshowUsers()">
          Users
       </button>
    </div>
-   <div>
-      <!-- This section shows only if user clicks Products button -->
-      <div *ngIf="showMoreProducts">
-         <app-manage-products></app-manage-products>
-      </div>
-      <!-- This section shows only if user clicks Categories button -->
-      <div *ngIf="showMoreCategories">
-         <app-manage-categories></app-manage-categories>
-      </div>
-      <!-- This section shows only if user clicks Users button -->
-      <div *ngIf="showMoreUsers">
-         <app-users></app-users>
-      </div>
-   </div>
+</div>
+
+<!-- This section shows only if user clicks Products button -->
+<div *ngIf="showMoreProducts">
+   <app-manage-products></app-manage-products>
+</div>
+<!-- This section shows only if user clicks Categories button -->
+<div *ngIf="showMoreCategories">
+   <app-manage-categories></app-manage-categories>
+</div>
+<!-- This section shows only if user clicks Users button -->
+<div *ngIf="showMoreOrders">
+   <app-manage-orders></app-manage-orders>
+</div>
+<!-- This section shows only if user clicks Users button -->
+<div *ngIf="showMoreUsers">
+   <app-users></app-users>
 </div>
 <app-footer class="bg-sky-900 flex items-center justify-between px-4 py-2 bottom-0 left-0 right-0 fixed"></app-footer>

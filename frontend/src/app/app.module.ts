@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,15 +27,15 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import {CartsModule} from './services/CartsModule';
 import { ManageCategoriesComponent } from './components/manage-categories/manage-categories.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
-// import { CloudinaryModule } from '@cloudinary/ng';
+import { CloudinaryModule } from '@cloudinary/ng';
 import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
-
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-
 import { ContactComponent } from './contact/contact.component';
 
 
@@ -68,12 +67,10 @@ import { ContactComponent } from './contact/contact.component';
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
-
+    ImageUploadComponent,
+    ManageOrdersComponent,
     CheckoutComponent,
-
     ContactComponent,
-    
-
   ],
   imports: [
     BrowserModule,

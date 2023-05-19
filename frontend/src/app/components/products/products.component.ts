@@ -24,7 +24,6 @@ export class ProductsComponent {
   filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
   searchQuery: string = '';
 
-
   filterProducts() {
     if (this.filter === 'all') {
       this.filteredProducts = this.products;
