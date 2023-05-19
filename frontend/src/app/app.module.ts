@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -78,7 +78,7 @@ import { ManageOrdersComponent } from './components/manage-orders/manage-orders.
     ReactiveFormsModule,
     CloudinaryModule,
     CommonModule,
-    FontAwesomeModule,
+    //FontAwesomeModule,
     CartsModule
   ],
   providers: [],
