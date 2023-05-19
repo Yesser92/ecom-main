@@ -6,6 +6,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
   carouselOptions: OwlOptions = {
     items: 1,
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
     nav: true,
     dots: true
   };
-
+ 
   images: string[] = [
     
     'https://blog.hubspot.com/hubfs/Ecommerce/ecommerce-promotions-fail.jpg',

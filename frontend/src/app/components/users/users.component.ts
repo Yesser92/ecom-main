@@ -36,4 +36,28 @@ export class UsersComponent implements OnInit {
     );
   }
 
+  updateUserToAdmin(id: number){
+    this.dataService.updateUserToAdmin(id).subscribe(
+      () => {
+        // User deleted successfully, refresh the users list
+        this.dataService.getUsers();
+      },
+      (error) => {
+        console.error('Error updating user:', error);
+      }
+    );
+  }
+
+  updateUserToCustomer(id: number){
+    this.dataService.updateUserToCustomer(id).subscribe(
+      () => {
+        // User deleted successfully, refresh the users list
+        this.dataService.getUsers();
+      },
+      (error) => {
+        console.error('Error updating user:', error);
+      }
+    );
+  }
+
 }

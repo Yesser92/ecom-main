@@ -1,3 +1,4 @@
+const stripe = require('stripe')('sk_test_51MwW2YKqLFfv80mnKqfe0Wb52NPtxT6tjyQKpL0PGC4ubBEpj2gjTsTptbPozhA7TDKbpACQhlxa1c62TYl4kQt800y5j81RXA'); // Replace with your Stripe secret key
 const express = require("express");
 const cors = require("cors");
 const users = require("./Routes/user.js");
@@ -7,12 +8,77 @@ const category = require("./Routes/category.js");
 const sequelize = require("./ORM/index.js");
 const promotions = require("./Routes/admin.js");
 const order = require('./Routes/order.js')
+const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
 
 const app = express();
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: 'duxaudba9',
+  api_key: '533564744479535',
+  api_secret: 'etMaOLHqjzIL5gGqlPrsd9oRvug'
+});
+
+// Configure Multer for file upload
+const storage = multer.diskStorage({});
+
+const upload = multer({ storage });
+
+// Define a route for image upload
+app.post('/upload', upload.single('image'), (req, res) => {
+  // Upload the image to Cloudinary
+  cloudinary.uploader.upload(req.file.path, (error, result) => {
+    if (error) {
+      return res.status(500).json({ error: 'Failed to upload image to Cloudinary' });
+    }
+    // Return the Cloudinary URL for the uploaded image
+    res.json({ url: result.secure_url });
+  });
+});
 
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+// Endpoint to process payments
+app.post('/api/payment', async (req, res) => {
+  const { amount, token } = req.body;
+  stripe.paymentMethods.create(
+    {
+      type: 'card',
+      card: {
+        token: token.card.token,
+      },
+    },
+    async function(err, paymentMethod) {
+      if (err) {
+        console.log(err);
+        // Handle error
+      } else {
+        console.log(paymentMethod);
+
+
+        try {
+          const paymentIntent = await stripe.paymentIntents.create({
+            amount,
+            currency: 'usd',
+            payment_method_types: ['card'],
+            payment_method: paymentMethod.id,
+            confirm: true
+          });
+          res.status(200).json({ paymentIntent });
+        } catch (error) {
+          console.log(error);
+          res.status(500).json({ error: 'Error creating payment intent' });
+        }
+
+        // PaymentMethod created successfully
+      }
+    }
+  );
+ 
+});
 
 // Use the routes
 app.use("/api/users", users);
@@ -26,6 +92,7 @@ app.use('/api/orders',order)
 // Sync with the database and start the server
 sequelize
   .sync()
+
   .then(() => {
     const port = 3000;
     app.listen(port, () => {
