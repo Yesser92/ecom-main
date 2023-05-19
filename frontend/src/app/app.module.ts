@@ -33,6 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     ManageCategoriesComponent,
     AddCategoryComponent,
     UsersComponent,
+    ContactComponent,
+    
   ],
   imports: [
     BrowserModule,
