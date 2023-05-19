@@ -1,14 +1,20 @@
-<nav class="bg-sky-900 flex items-center justify-between px-4 py-2 text-2xl">
-  <div class="flex items-center h-24">
+<nav class="bg-sky-800 flex items-center justify-between px-4 py-2 text-2xl h-24">
+    <div class="flex items-center mt-2 h-22">
       <a routerLink="/" class="flex items-center text-white font-bold">
-          <img src="assets/img/logo5.png" alt="Logo" class="mr-4 mb-0 mt-0 h-24 hover:shadow-lg">
-       
+        <img src="assets/img/logo7.png" alt="Logo" class="rounded-full mr-4 mb-0 mt-0 h-20 hover:shadow-lg">
       </a>
-  </div>
-  <div class="flex items-center">
-      <a routerLink="/products" class="text-white">Store</a>
-      <a routerLink="/dashboard" class="text-white ml-4">Dashboard</a>
-      <a routerLink="/login" class="text-white ml-4">Login</a>
-      <a routerLink="/signup" class="text-white ml-4">Signup</a>
-  </div>
-</nav>
+    </div>
+    <div class="flex items-center">
+      <ng-container *ngIf="!isLoggedIn; else loggedInUser">
+        <a routerLink="/products" class="text-white">Store</a>
+        <a routerLink="/login" class="text-white ml-4">Login</a>
+        <a routerLink="/signup" class="text-white ml-4">Signup</a>
+      </ng-container>
+      <ng-template #loggedInUser>
+        <a routerLink="/products" class="text-white">Store</a>
+        <p class="text-white mr-4">Hello, {{ userName }}</p>
+        <button (click)="logout()" class="text-white">Logout</button>
+      </ng-template>
+    </div>
+  </nav>
+  
