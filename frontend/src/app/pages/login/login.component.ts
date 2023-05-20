@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('username',user.user_name)
             user.role === 'admin'
               ? this.router.navigate(['/dashboard'])
-              : this.router.navigate(['/myProfile']);
+              : this.router.navigate(['/home']);
           }
         })
         .catch((error) => {
