@@ -34,6 +34,10 @@ export class ProductItemComponent {
     this.showReviewForm = true;
   }
 
+  addClicked(){
+    this.addButton = true  
+  }
+
   addToCart(event: any,newQuantity:string) {
 
 

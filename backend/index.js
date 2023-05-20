@@ -33,7 +33,7 @@ const upload = multer({ storage: storage });
 // API endpoint for image upload
 app.post('/api/upload', upload.single('image'), (req, res) => {
   // Process the uploaded image, generate the image URL
-  const imageUrl = `http://localhost:3000/api/uploads/${req.file.filename}`;
+  const imageUrl = `http://localhost:3000/uploads/${req.file.filename}`;
 
   // Return the image URL as the response
   res.json({ imageUrl: imageUrl });
