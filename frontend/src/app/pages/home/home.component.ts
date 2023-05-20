@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,22 +8,19 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 
 export class HomeComponent implements OnInit {
-  carouselOptions: OwlOptions = {
-    items: 1,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    nav: true,
-    dots: true
-  };
- 
-  images: string[] = [
-    
-    'https://blog.hubspot.com/hubfs/Ecommerce/ecommerce-promotions-fail.jpg',
-    'https://www.channelengine.com/media/labcysqb/blog-1.jpg',
-   'https://printuk.com/blog/wp-content/uploads/2017/06/ecommerce-marketing.png'
-  ];
+  userName: string | null = localStorage.getItem('username');
+
+  constructor(private router: Router) {}
+
+  
+  goToMyProfile() {
+    this.router.navigate(['/myProfile']);
+  }
+  
+  goToMyStore() {
+    this.router.navigate(['/products']);
+  }
+
 
   websiteDescription: string = 'Welcome to our online store! We offer a wide range of products at competitive prices. Shop now to discover great deals and enjoy a seamless shopping experience.';
 

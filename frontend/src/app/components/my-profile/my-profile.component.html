@@ -1,29 +1,29 @@
-<div class="container  w-full mx-5" >
-  <div class=" mx-auto bg-white shadow-md rounded-lg overflow-hidden w-full mx-5">
-    <h2 class="text-2xl font-bold mb-2">Hello {{ userName }}</h2>
-    <div class="p-4">
+<div class="" >
+  <div class="">
+    <h2 class="text-3xl font-bold mb-2">Hello {{ userName }}</h2>
+    <div class="flex space-x-4 ">
       <button
         *ngIf="!updateProfile"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-sky-900 rounded-full hover:bg-blue-700 text-white font-bold py-2 px-4 "
         (click)="getUserInfo()"
       >
-        complete and update profile
+        Edit profile
       </button>
       <button
         *ngIf="updateProfile"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-sky-900 rounded-full hover:bg-blue-700 text-white font-bold py-2 px-4 "
         (click)="seeInfo()"
       >
         close the profile form
       </button>
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-5"
-        (click)="goToStore()"
+      class="bg-sky-900 rounded-full hover:bg-blue-700 text-white font-bold py-2 px-4 "
+      (click)="goToStore()"
       >
         Go to Store
       </button>
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-5"
+      class="bg-sky-900 rounded-full hover:bg-blue-700 text-white font-bold py-2 px-4 "
         
       >
         orders historic
@@ -33,17 +33,15 @@
       <h2 class="text-xl font-bold mb-2">Profile infos</h2>
 
       <ul>
-        <li
-          class="border-b border-gray-300 py-2 flex justify-between items-center"
-        >
-          <div>
-            <p class="text-sm text-gray-700">
-              <span class="editable">name:</span>
-              <button
-                class="edit-icon ml-2 bg-blue-500 text-white text-lg"
-                (click)="toggleText()"
-              >
-                &#9998;
+    <li class="border-b border-gray-300 py-2 flex justify-between items-center">
+      <div>
+        <p class="text-sm text-gray-700">
+          <span class="editable">Name:</span>
+          <button
+            class="edit-icon ml-2 bg-blue-500 text-white text-lg"
+            (click)="toggleText()"
+          >
+            &#9998;
               </button>
             </p>
             <p

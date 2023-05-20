@@ -7,15 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  isLoggedIn: boolean = false; // Initially user is not logged in
-  userName: string = ''; // Holds the user name if logged in
-
-  constructor( private router: Router) {}
+  userName: string | null = localStorage.getItem('username');
+  isLoggedIn: boolean = localStorage.getItem('isLoggedIn') === 'true';
+  constructor(private router: Router) {}
 
   logout() {
-   
+    localStorage.removeItem('username');
+    localStorage.removeItem('id');
+    localStorage.removeItem('isLoggedIn');
+
     this.isLoggedIn = false;
     this.userName = '';
     this.router.navigate(['/login']);
+  }
+  ngOnInit() {
+    this.isLoggedIn = !!localStorage.getItem('username');
+    this.userName = localStorage.getItem('username');
   }
 }

@@ -10,10 +10,10 @@ import { Product } from '../../interfaces/product';
 export class ProductsComponent {
   @Input() data: any;
 
- products: Product[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {}
- 
+
   categories: { category_id: number; category_name: string }[] = [
     { category_id: 3, category_name: 'Tech' },
     { category_id: 4, category_name: 'Clothing' },

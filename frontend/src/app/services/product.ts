@@ -38,4 +38,9 @@ export class ProductService {
     const url = `${this.API_URL}/${id}`;
     return this.http.delete<Product>(url);
   }
+
+  submitReview(product_Id: number, reviewData: any): Observable<any> {
+    const url = `${this.API_URL}/${product_Id}/reviews`;
+    return this.http.post(url, reviewData);
+  }
 }
