@@ -39,6 +39,10 @@ export class ProductItemComponent {
     this.showReviewForm = false;
   }
 
+  addClicked(){
+    this.addButton = true  
+  }
+  
   submitReview() {
     const reviewData = {
       title: this.reviewTitle,
