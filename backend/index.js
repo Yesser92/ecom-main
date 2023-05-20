@@ -8,38 +8,39 @@ const category = require("./Routes/category.js");
 const sequelize = require("./ORM/index.js");
 const promotions = require("./Routes/admin.js");
 const order = require('./Routes/order.js')
-const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
 
 const app = express();
 
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: 'duxaudba9',
-  api_key: '533564744479535',
-  api_secret: 'etMaOLHqjzIL5gGqlPrsd9oRvug'
-});
-
-// Configure Multer for file upload
-const storage = multer.diskStorage({});
-
-const upload = multer({ storage });
-
-// Define a route for image upload
-app.post('/upload', upload.single('image'), (req, res) => {
-  // Upload the image to Cloudinary
-  cloudinary.uploader.upload(req.file.path, (error, result) => {
-    if (error) {
-      return res.status(500).json({ error: 'Failed to upload image to Cloudinary' });
-    }
-    // Return the Cloudinary URL for the uploaded image
-    res.json({ url: result.secure_url });
-  });
-});
+const path = require('path');
+const multer = require('multer');
 
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+// Set up multer for handling image uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// API endpoint for image upload
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  // Process the uploaded image, generate the image URL
+  const imageUrl = `http://localhost:3000/uploads/${req.file.filename}`;
+
+  // Return the image URL as the response
+  res.json({ imageUrl: imageUrl });
+});
+
+// Serve the uploaded images as static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Endpoint to process payments
 app.post('/api/payment', async (req, res) => {
