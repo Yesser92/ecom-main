@@ -8,8 +8,34 @@ const category = require("./Routes/category.js");
 const sequelize = require("./ORM/index.js");
 const promotions = require("./Routes/admin.js");
 const order = require('./Routes/order.js')
+const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
 
 const app = express();
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: 'duxaudba9',
+  api_key: '533564744479535',
+  api_secret: 'etMaOLHqjzIL5gGqlPrsd9oRvug'
+});
+
+// Configure Multer for file upload
+const storage = multer.diskStorage({});
+
+const upload = multer({ storage });
+
+// Define a route for image upload
+app.post('/upload', upload.single('image'), (req, res) => {
+  // Upload the image to Cloudinary
+  cloudinary.uploader.upload(req.file.path, (error, result) => {
+    if (error) {
+      return res.status(500).json({ error: 'Failed to upload image to Cloudinary' });
+    }
+    // Return the Cloudinary URL for the uploaded image
+    res.json({ url: result.secure_url });
+  });
+});
 
 // Middleware
 app.use(express.json());
@@ -31,6 +57,7 @@ app.post('/api/payment', async (req, res) => {
         // Handle error
       } else {
         console.log(paymentMethod);
+
 
         try {
           const paymentIntent = await stripe.paymentIntents.create({
@@ -65,6 +92,7 @@ app.use('/api/orders',order)
 // Sync with the database and start the server
 sequelize
   .sync()
+
   .then(() => {
     const port = 3000;
     app.listen(port, () => {

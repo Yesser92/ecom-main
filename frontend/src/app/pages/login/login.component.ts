@@ -28,23 +28,27 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Email:', this.loginForm.value.email);
-      console.log('Password:', this.loginForm.value.password);
       axios
         .post(this.url, {
           email: this.loginForm.value.email,
           password: this.loginForm.value.password,
         })
-        .then((res) => {
-          if (res.status === 200) { 
-           alert(res.data.message);
-           const user= res.data.user;
-           user.role==='admin'?this.router.navigate(['/dashboard']):this.router.navigate(['/products'])
+        .then((res) => { 
+          if (res.status === 200) {
+            alert(res.data.message);
+            const user = res.data.user;
+            console.log(res.data)
+            localStorage.setItem('role', user.role);
+            localStorage.setItem('id', user.user_id);
+            localStorage.setItem('username',user.user_name)
+            user.role === 'admin'
+              ? this.router.navigate(['/dashboard'])
+              : this.router.navigate(['/home']);
           }
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
-            alert(error.response.data.message);
+            alert(error.response.data.message)
           } else {
             console.error(error);
             alert('An error occurred. Please try again later.');
@@ -54,6 +58,4 @@ export class LoginComponent implements OnInit {
       return;
     }
   }
-  
-  
 }
