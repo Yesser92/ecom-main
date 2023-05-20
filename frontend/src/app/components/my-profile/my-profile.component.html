@@ -23,7 +23,7 @@
         Go to Store
       </button>
       <button
-      class="bg-sky-900 rounded-full hover:bg-blue-700 text-white font-bold py-2 px-4 "
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-5 "(click)="showUnshowOrders()"
         
       >
         orders historic
@@ -201,4 +201,7 @@
       </button>
     </div>
   </div>
+</div>
+<div *ngIf="showOrders">
+  <app-orders></app-orders>
 </div>
