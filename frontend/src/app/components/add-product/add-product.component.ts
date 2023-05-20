@@ -65,7 +65,7 @@ export class AddProductComponent {
         (response) => {
           console.log('Image uploaded successfully', response.imageUrl);
           const newProduct = JSON.parse(localStorage.getItem('newProduct')!)
-          const productToAdd = {...newProduct,Image:response.imageUrl}
+          const productToAdd = {...newProduct,image:response.imageUrl}
           console.log(productToAdd)
           this.dataService.addProduct(productToAdd).subscribe(
             response => {
