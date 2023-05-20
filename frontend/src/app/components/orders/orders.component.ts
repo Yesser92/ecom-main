@@ -8,10 +8,14 @@ import OrdersService from '../../services/order-service.service';
 })
 export class OrdersComponent implements OnInit {
   orderData:any;
+  orderDataByUser:any;
   constructor(private ordersService: OrdersService) { }
   ngOnInit(): void {
       this.ordersService.getOrderDATA().subscribe((data)=>{
         this.orderData = data;
+      })
+      this.ordersService.getOrderByUserId().subscribe((data)=>{
+        this.orderDataByUser = data;
       })
   }
 }

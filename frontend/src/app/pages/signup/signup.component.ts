@@ -50,7 +50,7 @@ export class SignupComponent {
       return false;
     }
 
-    if (this.password.length < 6) {
+    if (this.password.length < 8) {
       return false;
     }
 

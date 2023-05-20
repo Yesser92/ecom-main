@@ -5,10 +5,12 @@
                 <table class="min-w-full text-left text-sm font-light">
                     <thead class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600">
                         <tr>
-                            <th scope="col" class=" px-6 py-4">User id</th>
-                            <th scope="col" class=" px-6 py-4">User name</th>
-                            <th scope="col" class=" px-6 py-4">Email</th>
-                            <th scope="col" class=" px-6 py-4"></th>
+                            <th scope="col" class="px-6 py-4">User id</th>
+                            <th scope="col" class="px-6 py-4">User name</th>
+                            <th scope="col" class="px-6 py-4">Email</th>
+                            <th scope="col" class="px-6 py-4">Role</th>
+                            <th scope="col" class="px-6 py-4"></th>
+                            <th scope="col" class="px-6 py-4"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -17,8 +19,18 @@
                             <td class="whitespace-nowrap px-6 py-4">{{user.user_id}}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{user.user_name}}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{user.email}}</td>
-                            <td class="whitespace-nowrap px-6 py-4"><button
-                                class="ml-2 px-4 py-2 text-white bg-red-500 rounded-md" (click)="deleteUser(user.user_id)">Delete</button>
+                            <td class="whitespace-nowrap px-6 py-4">{{user.role}}</td>
+                            <td class="whitespace-nowrap px-6 py-4">
+                                <button class="ml-2 px-4 py-2 text-white bg-green-500 rounded-md"
+                                    *ngIf="user.role === 'customer'" (click)="updateUserToAdmin(user.user_id)">Add as
+                                    admin</button>
+                                <button class="ml-2 px-4 py-2 text-white bg-bluecd f-500 rounded-md"
+                                    *ngIf="user.role === 'admin'" (click)="updateUserToCustomer(user.user_id)">Remove
+                                    from admin</button>
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4">
+                                <button class="ml-2 px-4 py-2 text-white bg-red-500 rounded-md"
+                                    (click)="deleteUser(user.user_id)">Delete</button>
                             </td>
                         </tr>
                     </tbody>

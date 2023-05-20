@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let order of orderData">
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let order of orderDataByUser">
             <td class="px-6 py-4">{{ order.user_id }}</td>
             <td class="px-6 py-4">{{ order.order_id }}</td>
             <td class="px-6 py-4">{{ order.order_date }}</td>

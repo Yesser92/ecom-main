@@ -29,6 +29,12 @@
     "cloudinary-core": "^2.0.0",
     "firebase": "^9.21.0",
     "fortawesome": "^0.0.1-security",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
+    "cloudinary-core": "^2.0.0",
+    "firebase": "^9.21.0",
+    "ng": "^0.0.0",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^16.0.0",
     "ngx-slick-carousel": "^15.0.0",
@@ -37,6 +43,7 @@
     "rxjs": "~7.8.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
+    "video.js": "^8.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
