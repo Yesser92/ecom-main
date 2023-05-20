@@ -29,5 +29,10 @@ export class ProductsService {
       })
     );
   }
+
+  addProduct(data: any): Observable<any> {
+    const addUrl = `${this.apiUrl}/new`;
+    return this.http.post<any>(addUrl, data);
+  }
   
 }
