@@ -10,10 +10,14 @@ export class DashboardComponent {
   showMoreProducts = false;
   showMoreCategories = false;
   showMoreUsers = false;
+  showMoreOrders = false;
 
   showUnshowProducts() {
     if(!this.showMoreProducts){
       this.showMoreProducts = true;
+      this.showMoreCategories = false;
+      this.showMoreUsers = false;
+      this.showMoreOrders = false;
     }
     else{
       this.showMoreProducts = false;
@@ -23,6 +27,9 @@ export class DashboardComponent {
   showUnshowCategories() {
     if(!this.showMoreCategories){
       this.showMoreCategories = true;
+      this.showMoreProducts = false;
+      this.showMoreUsers = false;
+      this.showMoreOrders = false;
     }
     else{
       this.showMoreCategories = false;
@@ -32,6 +39,21 @@ export class DashboardComponent {
   showUnshowUsers() {
     if(!this.showMoreUsers){
       this.showMoreUsers = true;
+      this.showMoreProducts = false;
+      this.showMoreCategories = false;
+      this.showMoreOrders = false;
+    }
+    else{
+      this.showMoreUsers = false;
+    }
+  }
+
+  showUnshowOrders() {
+    if(!this.showMoreOrders){
+      this.showMoreOrders = true;
+      this.showMoreProducts = false;
+      this.showMoreCategories = false;
+      this.showMoreUsers = false;
     }
     else{
       this.showMoreUsers = false;

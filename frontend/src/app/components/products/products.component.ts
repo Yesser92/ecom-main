@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ProductService } from '../../services/products';
+import { ProductService }  from 'src/app/services/product';
 import { Product } from '../../interfaces/product';
-//Montassar
-//import { Product } from 'src/app/interfaces/product';
-
 
 @Component({
   selector: 'app-products',
@@ -13,10 +10,10 @@ import { Product } from '../../interfaces/product';
 export class ProductsComponent {
   @Input() data: any;
 
- products: Product[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {}
- 
+
   categories: { category_id: number; category_name: string }[] = [
     { category_id: 3, category_name: 'Tech' },
     { category_id: 4, category_name: 'Clothing' },
@@ -25,8 +22,7 @@ export class ProductsComponent {
   selectedCategory: number | null = null;
   filteredProducts: Product[] = [];
   filter: 'all' | 'Tech' | 'Home and Kitchen' | 'Clothing' = 'all';
-
-  constructor(private productService: ProductService) {}
+  searchQuery: string = '';
 
   filterProducts() {
     if (this.filter === 'all') {
@@ -35,6 +31,28 @@ export class ProductsComponent {
       this.filteredProducts = this.products.filter((product) => {
         const categoryName = this.getCategoryName(product.category_id);
         return categoryName === this.filter;
+      });
+    }
+  }
+
+  searchProducts() {
+    if (!this.searchQuery) {
+      this.filteredProducts =
+        this.filter === 'all'
+          ? this.products
+          : this.products.filter((product) => {
+              const categoryName = this.getCategoryName(product.category_id);
+              return categoryName === this.filter;
+            });
+    } else {
+      this.filteredProducts = this.products.filter((product) => {
+        const categoryName = this.getCategoryName(product.category_id);
+        return (
+          (this.filter === 'all' || categoryName === this.filter) &&
+          product.product_name
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase())
+        );
       });
     }
   }

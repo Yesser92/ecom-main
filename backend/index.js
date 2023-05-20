@@ -11,9 +11,36 @@ const order = require('./Routes/order.js')
 
 const app = express();
 
+const path = require('path');
+const multer = require('multer');
+
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+// Set up multer for handling image uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// API endpoint for image upload
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  // Process the uploaded image, generate the image URL
+  const imageUrl = `http://localhost:3000/uploads/${req.file.filename}`;
+
+  // Return the image URL as the response
+  res.json({ imageUrl: imageUrl });
+});
+
+// Serve the uploaded images as static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Endpoint to process payments
 app.post('/api/payment', async (req, res) => {
@@ -31,6 +58,7 @@ app.post('/api/payment', async (req, res) => {
         // Handle error
       } else {
         console.log(paymentMethod);
+
 
         try {
           const paymentIntent = await stripe.paymentIntents.create({
@@ -65,6 +93,7 @@ app.use('/api/orders',order)
 // Sync with the database and start the server
 sequelize
   .sync()
+
   .then(() => {
     const port = 3000;
     app.listen(port, () => {
