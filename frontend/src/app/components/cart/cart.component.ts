@@ -90,7 +90,9 @@ export class CartComponent implements OnInit {
   payAndCheckout(): void {
     this.makePayment(() => {
       this.router.navigate(['/checkout']);
+      this.clearCart()
     });
+   
   }
 
   invokeStripe(): void {
