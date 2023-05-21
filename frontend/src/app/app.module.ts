@@ -24,7 +24,7 @@ import { StoreComponent } from './pages/store/store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
-import {CartsModule} from './services/CartsModule';
+import { CartsModule } from './services/CartsModule';
 import { ManageCategoriesComponent } from './components/manage-categories/manage-categories.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { CloudinaryModule } from '@cloudinary/ng';
@@ -32,6 +32,7 @@ import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
