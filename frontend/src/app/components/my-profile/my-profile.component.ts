@@ -9,7 +9,7 @@ import axios from 'axios';
 export class MyProfileComponent {
   editText:boolean=false
   userName: string | null = localStorage.getItem('username');
-  updateProfile: boolean = false;
+  updateProfile: boolean = true;
   customerInfos: {
     user_name: string|null; email: string|null; phone: string|null;
     address: string|null;city: string|null;
