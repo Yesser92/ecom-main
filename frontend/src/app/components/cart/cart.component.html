@@ -56,15 +56,12 @@
 </ng-container>
 
 <ng-template #emptyCart>
-  <div class="container">
-    <div class="card-table">
-      <div class="cart-product">
-        <!-- Contenu de la table du panier vide -->
-      </div>
-      <div class="center">
-        <img src="URL_DE_VOTRE_IMAGE" alt="Empty cart logo">
-        <a href="/products" class="btn btn-primary" style="display: inline-block; padding: 0.5em 1em; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 0.25em;">Shop Now</a>
-      </div>
-    </div>
-  </div>
+  <div>
+       <div >
+        <img  src="assets\img\emptyCart.png" alt="Empty cart logo">
+        <h1 class="ml-12 text-2xl text-bold text-red-600 mb-8">Your cart is empty</h1>
+      </div> 
+      <a href="/products" class="ml-20 bg-green-300 hover:bg-green-500 hover:text-white border-yellow-200 py-5 px-3 text-2xl font-bold rounded-xl">Shop Now</a>
+
+     </div>
 </ng-template>
