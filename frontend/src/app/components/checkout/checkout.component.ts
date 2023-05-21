@@ -44,9 +44,9 @@ export class CheckoutComponent {
   formErrors: Partial<PersonalInfo> = {};
   formSubmitted = false;
 
-  // getTotalPrice(): number {
-  //   return this.items.reduce((acc, item) => acc + item.price, 0);
-  // }
+  getTotalPrice(): number {
+    return this.items.reduce((acc, item) => acc + item.price, 0);
+  }
 
   validateForm(values: PersonalInfo): Partial<PersonalInfo> {
     const errors: Partial<PersonalInfo> = {};

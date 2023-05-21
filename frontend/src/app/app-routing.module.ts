@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { authGuard } from './auth.guard';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent }, 
   { path: 'addproduct', component: AddProductComponent },
   { path: 'myProfile', component:MyProfileComponent},
+  { path: 'checkout', component:CheckoutComponent},
   // additional routes...
 ];
 
