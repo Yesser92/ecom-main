@@ -27,10 +27,23 @@ export class MyProfileComponent {
   seeInfo() {
     this.updateProfile = !this.updateProfile;
   }
+  showOrders = false;
+
+showUnshowOrders() {
+    if(!this.showOrders){
+      this.showOrders = true;
+    }
+    else{
+      this.showOrders = false;
+    }
+  }
   
   goToStore(){
   this.router.navigate(['/products'])
   }
+  goToOrders(){
+    this.router.navigate(['/orders'])
+    }
   
   getUserInfo() {
     axios.get(`http://localhost:3000/api/users/${this.id}`).then((res) => {
