@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
-  showMoreProducts = false;
+  showMoreProducts = true;
   showMoreCategories = false;
   showMoreUsers = false;
   showMoreOrders = false;

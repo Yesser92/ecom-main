@@ -11,10 +11,19 @@ export class NavbarComponent {
   isLoggedIn: boolean = localStorage.getItem('isLoggedIn') === 'true';
   constructor(private router: Router) {}
 
+  isAdmin():boolean {
+    if(localStorage.getItem('role')==='admin'){
+      return true
+    }
+    else{
+      return false
+    }
+  }
   logout() {
     localStorage.removeItem('username');
     localStorage.removeItem('id');
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('role');
 
     this.isLoggedIn = false;
     this.userName = '';

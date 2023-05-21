@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container mx-auto" *ngIf="userName">
   <div>
     <h2 class="text-3xl font-bold">Welcome {{ userName }}</h2>
   </div>
@@ -14,10 +14,11 @@
         class="bg-sky-900 text-xl rounded-full hover:bg-blue-700 text-white font-bold py-2 px-4"
         (click)="goToMyStore()"
       >
-        My Store
+        Store
       </button>
     </div>
   </div>
+  <div *ngIf="!userName"></div>
 </div>
 <div class="flex">
   <div class="w-2/3 ml-2 flex flex-col mt-0 mb-2 justify-center">

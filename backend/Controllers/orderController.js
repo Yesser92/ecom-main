@@ -105,4 +105,17 @@ async function getOrdersByUserId(req, res) {
   }
 }
 
-module.exports = { createOrder, getOrdersByUserId };
+async function getAllOrders(req, res) {
+  try {
+    // Fetch all categories from the database
+    const orders = await Order.findAll();
+
+    // Send response with all categories
+    res.status(200).json(orders);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+module.exports = { createOrder, getOrdersByUserId, getAllOrders };
