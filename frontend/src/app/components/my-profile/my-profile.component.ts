@@ -9,7 +9,7 @@ import axios from 'axios';
 export class MyProfileComponent {
   editText:boolean=false
   userName: string | null = localStorage.getItem('username');
-  updateProfile: boolean = false;
+  updateProfile: boolean = true;
   customerInfos: {
     user_name: string|null; email: string|null; phone: string|null;
     address: string|null;city: string|null;
@@ -27,10 +27,23 @@ export class MyProfileComponent {
   seeInfo() {
     this.updateProfile = !this.updateProfile;
   }
+  showOrders = false;
+
+showUnshowOrders() {
+    if(!this.showOrders){
+      this.showOrders = true;
+    }
+    else{
+      this.showOrders = false;
+    }
+  }
   
   goToStore(){
   this.router.navigate(['/products'])
   }
+  goToOrders(){
+    this.router.navigate(['/orders'])
+    }
   
   getUserInfo() {
     axios.get(`http://localhost:3000/api/users/${this.id}`).then((res) => {

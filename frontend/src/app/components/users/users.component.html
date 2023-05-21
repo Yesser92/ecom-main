@@ -22,11 +22,14 @@
                             <td class="whitespace-nowrap px-6 py-4">{{user.role}}</td>
                             <td class="whitespace-nowrap px-6 py-4">
                                 <button class="ml-2 px-4 py-2 text-white bg-green-500 rounded-md"
-                                    *ngIf="user.role === 'customer'" (click)="updateUserToAdmin(user.user_id)">Add as
+                                    *ngIf="user.role === 'customer'; else notCustomer"
+                                    (click)="updateUserToAdmin(user.user_id)">Add as
                                     admin</button>
-                                <button class="ml-2 px-4 py-2 text-white bg-bluecd f-500 rounded-md"
-                                    *ngIf="user.role === 'admin'" (click)="updateUserToCustomer(user.user_id)">Remove
-                                    from admin</button>
+                                <ng-template #notCustomer>
+                                    <button class="ml-2 px-4 py-2 text-white bg-blue-500 rounded-md"
+                                        (click)="updateUserToCustomer(user.user_id)">Remove
+                                        from admin</button>
+                                </ng-template>
                             </td>
                             <td class="whitespace-nowrap px-6 py-4">
                                 <button class="ml-2 px-4 py-2 text-white bg-red-500 rounded-md"

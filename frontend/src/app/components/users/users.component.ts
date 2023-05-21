@@ -9,6 +9,7 @@ import { User } from 'src/app/user';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
+  updated: boolean = true;
 
   constructor(private dataService: UsersService) { }
 
@@ -22,6 +23,7 @@ export class UsersComponent implements OnInit {
         console.error('Error fetching data:', error);
       }
     );
+
   }
 
   deleteUser(id: number) {
@@ -46,6 +48,7 @@ export class UsersComponent implements OnInit {
         console.error('Error updating user:', error);
       }
     );
+    this.updated = !this.updated;
   }
 
   updateUserToCustomer(id: number){
@@ -58,6 +61,7 @@ export class UsersComponent implements OnInit {
         console.error('Error updating user:', error);
       }
     );
+    this.updated = !this.updated;
   }
 
 }
